@@ -14,33 +14,41 @@ namespace ParsePpt
     {
         public static string getSlideText(string path, int s)
         {
-            using (PresentationDocument ppt = PresentationDocument.Open(path, false))
+            try
             {
-                // Get RelationshipId for first slide
-                PresentationPart part = ppt.PresentationPart;
-                OpenXmlElementList slideIds = part.Presentation.SlideIdList.ChildElements;
-                //foreach (B id in slideIds)
-                //{
-                //    string relId = id as SlideId.Rel
-                //}
-
-                // for debugging, getting slide 1 only
-                string relId = (slideIds[s] as SlideId).RelationshipId;
-
-                // Get the slide part from the RelationshipId
-                SlidePart slide = (SlidePart)part.GetPartById(relId);
-
-                // Build StringBuilder object
-                StringBuilder sb = new StringBuilder();
-
-                // Get the inner text of the slide
-                IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
-                foreach (A.Text text in texts)
+                using (PresentationDocument ppt = PresentationDocument.Open(path, false))
                 {
-                    sb.Append(text.Text + "\n");
+                    // Get RelationshipId for first slide
+                    PresentationPart part = ppt.PresentationPart;
+                    OpenXmlElementList slideIds = part.Presentation.SlideIdList.ChildElements;
+                    //foreach (B id in slideIds)
+                    //{
+                    //    string relId = id as SlideId.Rel
+                    //}
+
+                    // for debugging, getting slide 1 only
+                    string relId = (slideIds[s] as SlideId).RelationshipId;
+
+                    // Get the slide part from the RelationshipId
+                    SlidePart slide = (SlidePart)part.GetPartById(relId);
+
+                    // Build StringBuilder object
+                    StringBuilder sb = new StringBuilder();
+
+                    // Get the inner text of the slide
+                    IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
+                    foreach (A.Text text in texts)
+                    {
+                        sb.Append(text.Text + "\n");
+                    }
+                    return sb.ToString();
                 }
-                return sb.ToString();
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                return ("Slide " + s + " does not exist in the presentation");
+            }
+            
         }
     }
 }
