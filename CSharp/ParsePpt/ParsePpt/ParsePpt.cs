@@ -12,7 +12,7 @@ namespace ParsePpt
 {
     public class ParsePpt
     {
-        public static string getSlideText(string path)
+        public static string getSlideText(string path, int s)
         {
             using (PresentationDocument ppt = PresentationDocument.Open(path, false))
             {
@@ -25,7 +25,7 @@ namespace ParsePpt
                 //}
 
                 // for debugging, getting slide 1 only
-                string relId = (slideIds[0] as SlideId).RelationshipId;
+                string relId = (slideIds[s] as SlideId).RelationshipId;
 
                 // Get the slide part from the RelationshipId
                 SlidePart slide = (SlidePart)part.GetPartById(relId);
@@ -37,7 +37,7 @@ namespace ParsePpt
                 IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
                 foreach (A.Text text in texts)
                 {
-                    sb.Append(text.Text);
+                    sb.Append(text.Text + "\n");
                 }
                 return sb.ToString();
             }
