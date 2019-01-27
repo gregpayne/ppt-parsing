@@ -12,6 +12,17 @@ namespace ParsePpt
 {
     public class ParsePpt
     {
+        public static long getSlideCount(string path)
+        {
+            using (PresentationDocument ppt = PresentationDocument.Open(path, false))
+            {
+                // Get RelationshipId for first slide
+                PresentationPart part = ppt.PresentationPart;
+                OpenXmlElementList slideIds = part.Presentation.SlideIdList.ChildElements;
+                return (int)slideIds.Count<B>();
+            }
+        }
+
         public static string getSlideText(string path, int s)
         {
             try
@@ -21,12 +32,6 @@ namespace ParsePpt
                     // Get RelationshipId for first slide
                     PresentationPart part = ppt.PresentationPart;
                     OpenXmlElementList slideIds = part.Presentation.SlideIdList.ChildElements;
-                    //foreach (B id in slideIds)
-                    //{
-                    //    string relId = id as SlideId.Rel
-                    //}
-
-                    // for debugging, getting slide 1 only
                     string relId = (slideIds[s] as SlideId).RelationshipId;
 
                     // Get the slide part from the RelationshipId
@@ -48,7 +53,6 @@ namespace ParsePpt
             {
                 return ("Slide " + s + " does not exist in the presentation");
             }
-            
         }
     }
 }
