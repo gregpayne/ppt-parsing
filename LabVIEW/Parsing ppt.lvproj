@@ -13,7 +13,9 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Build Output Folder.vi" Type="VI" URL="../Build Output Folder.vi"/>
 		<Item Name="Get images.vi" Type="VI" URL="../Get images.vi"/>
+		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="Parse ppt document.vi" Type="VI" URL="../Parse ppt document.vi"/>
+		<Item Name="Parse Presentation.lvclass" Type="LVClass" URL="../Parse Presentation/Parse Presentation.lvclass"/>
 		<Item Name="Parse using dll.vi" Type="VI" URL="../Parse using dll.vi"/>
 		<Item Name="Record Images.vi" Type="VI" URL="../Record Images.vi"/>
 		<Item Name="Record Text.vi" Type="VI" URL="../Record Text.vi"/>
