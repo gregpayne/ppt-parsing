@@ -13,6 +13,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Get images.vi" Type="VI" URL="../Get images.vi"/>
 		<Item Name="Parse ppt document.vi" Type="VI" URL="../Parse ppt document.vi"/>
+		<Item Name="Parse using dll.vi" Type="VI" URL="../Parse using dll.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
@@ -41,6 +42,7 @@
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="ParsePpt.dll" Type="Document" URL="../../CSharp/ParsePpt/ParsePpt/bin/Debug/ParsePpt.dll"/>
 			<Item Name="System" Type="VI" URL="System">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
