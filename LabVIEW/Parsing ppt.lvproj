@@ -11,9 +11,13 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="Build Output Folder.vi" Type="VI" URL="../Build Output Folder.vi"/>
 		<Item Name="Get images.vi" Type="VI" URL="../Get images.vi"/>
 		<Item Name="Parse ppt document.vi" Type="VI" URL="../Parse ppt document.vi"/>
 		<Item Name="Parse using dll.vi" Type="VI" URL="../Parse using dll.vi"/>
+		<Item Name="Record Images.vi" Type="VI" URL="../Record Images.vi"/>
+		<Item Name="Record Text.vi" Type="VI" URL="../Record Text.vi"/>
+		<Item Name="Slide Info..cluster.ctl" Type="VI" URL="../Slide Info..cluster.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
