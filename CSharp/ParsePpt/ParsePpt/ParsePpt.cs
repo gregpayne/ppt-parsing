@@ -7,6 +7,8 @@ using DocumentFormat.OpenXml.Packaging;
 using A = DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Presentation;
 using B = DocumentFormat.OpenXml.OpenXmlElement;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace ParsePpt
 {
@@ -86,6 +88,13 @@ namespace ParsePpt
             {
                 return ("Slide " + s + " does not exist in the presentation");
             }
+        }
+
+        public static string getAssemblyVersion()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            return fvi.FileVersion;
         }
     }
 }
