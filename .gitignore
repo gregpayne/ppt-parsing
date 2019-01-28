@@ -7,3 +7,5 @@ Installer
 bin
 obj
 .vs
+
+*.zip
