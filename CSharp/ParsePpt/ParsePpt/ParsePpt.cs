@@ -14,7 +14,7 @@ namespace ParsePpt
 {
     public class ParsePpt
     {
-        public static long getSlideCount(string path)
+        public static int getSlideCount(string path)
         {
             using (PresentationDocument ppt = PresentationDocument.Open(path, false))
             {
@@ -46,7 +46,7 @@ namespace ParsePpt
                     IEnumerable<A.Text> texts = slide.Slide.Descendants<A.Text>();
                     foreach (A.Text text in texts)
                     {
-                        sb.Append(text.Text + "\n");
+                        sb.Append(text.Text + "\r\n");
                     }
                     return sb.ToString();
                 }
